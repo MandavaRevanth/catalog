@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='showroom.css')}}">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="ha">
+      <a class="navbar-brand" href="#">BIKEWALA</a>
+    </div>
+  </div>
+    <ul class="nav navbar-nav navbar-right">
+      {% if 'username' not in session %}
+      <li><a href="{{ url_for('showLogin')}}" class="glyphicon glyphicon-log-in"> Login <span ></span></a></li>
+      {% else %}
+      <li><a href="{{ url_for('logout')}}" class="glyphicon glyphicon-log-out"> logout </a></li>
+    </ul>
+    {% endif %}
+    <ul class="nav navbar-nav navbar-right">
+    <li><a href="{{ url_for('newShowroom')}}" class="glyphicon glyphicon-user"> Add</a></li>
+  </ul>
+  </div>
+</nav>
+<div style="text-align: center;">
+<div class="container">           
+  <img src="{{url_for('static', filename='bw.jpg')}}" class="img-circle" alt="Cinque Terre" width="150" height="150"> 
+  <h3 class="ha" ><b>BIKEWALA</b></h3>
+  <p><b><span style="color: white">Keep your </span><span style="color: red">bike high </span><span style="color: white">& your </span><span style="color: red">head higher</span></b></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<div>
+  
+</div>
+{% for c in showroom %}
+<ul>
+    <h3><a href="{{url_for('showBikes',showroom_id=c.id)}}" style="color: white">{{c.name}}</a></h3>
+    {% if 'username' in session %}
+    <button><a href="{{url_for('editShowroom',showroom_id=c.id)}}" class="glyphicon glyphicon-edit"> edit <span ></a></button>
+  <button><a href="{{url_for('deleteShowroom',showroom_id=c.id)}}" class="glyphicon glyphicon-trash"> delete  <span ></span></a></button>
+
+
+
+    {% endif %}                              
+</ul>
+{% endfor %}
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BIKEWALA</title>
+    </head>
+<body>
+    <form action="{{ url_for('newBikeList',bike_id=bike_id)}}" method="POST">
+        bike_name-: <br><input type="text" name="bike_name" required><br>
+        about-: <br><input type="" name="about" required><br>
+        millage-: <br><input type="text" name="millage" required><br>
+        engine_capacity-: <br><input type="text" name="engine_capacity" required><br>
+        max_power-: <br><input type="text" name="max_power" required><br>
+        Transmission-: <br><input type="text" name="Transmission" required><br>
+        kerb_weight-: <br><input type="text" name="kerb_weight" required><br>
+        price-: <br><input type="text" name="price" required><br>
+        <br><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Add <span class="glyphicon glyphicon-plus-sign"></span></button>
+         <button><a href="{{ url_for('showBikes',showroom_id=bike_id)}}">Cancel</a></button>
+
+
+    
+</form>
+</body>
+</html>

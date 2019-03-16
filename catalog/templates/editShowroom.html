@@ -1,0 +1,14 @@
+<html>
+<head>
+</head>
+<body>
+	<form action="{{ url_for('editShowroom', showroom_id=showroom.id)}}" method="POST">
+	<label>Showroom Name</label>
+	<input type="text" name="name" placeholder="{{showroom.name}}" required>
+	<button type="submit">Edit</button>
+	<a href="{{ url_for('showShowroom')}}">Cancel</a>
+</form>
+</body>
+</html>
+
+

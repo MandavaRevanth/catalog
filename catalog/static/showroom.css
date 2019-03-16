@@ -1,0 +1,7 @@
+body{
+	margin: 0 auto;
+	font-size:135%;
+	background-repeat: no-repeat;
+	background-image :url("1.jpg");
+	background-size: cover;
+}

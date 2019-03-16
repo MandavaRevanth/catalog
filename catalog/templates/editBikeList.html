@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<form action="{{ url_for('editBikeList', showroom_id=showroom.id,b_id=bike.id)}}" method="POST">
+	<div class="matter">
+		bike_name<br><input type="text" name="bike_name" value="{{bike.bike_name}}"><br>
+		about<br><input type="" name="about"  value="{{bike.about}}"><br>
+		millage<br><input type="text" name="millage" value="{{bike.millage}}"><br>
+		engine_capacity<br><input type="text" name="engine_capacity" value="{{bike.engine_capacity}}"><br>
+		max_power<br><input type="text" name="max_power" value="{{bike.max_power}}"><br>
+		Transmission<br><input type="text" name="Transmission" value="{{bike.Transmission}}"><br>
+		kerb_weight<br><input type="text" name="kerb_weight" value="{{bike.kerb_weight}}"><br>
+		price<br><input type="text" name="price" value="{{bike.price}}"><br><br>
+        <button type="submit" class="glyphicon glyphicon-edit"> Edit</button>
+		<button><a href="{{url_for('showBikes',showroom_id=showroom.id)}}" class="glyphicon glyphicon-remove"> cancel</a></button>
+
+
+
+	</div>
+</form>
+</body>
+</html>
+

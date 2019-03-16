@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+<body>
+	<form action="#" method="POST">
+
+		<div style="text-align: center;">
+<div class="container">           
+  <img src="{{url_for('static', filename='bw.jpg')}}" class="img-circle" alt="Cinque Terre" width="150" height="150"> 
+  <h3 class="ha" ><b>BIKEWALA</b></h3>
+  <p><b><span style="color: black">Keep your </span><span style="color: red">bike high </span><span style="color: black">& your </span><span style="color: red">head higher</span></b></p>
+</div>
+</div>
+
+	<div class="">
+		{% if 'username' in session %}
+			<button><a href="{{ url_for('newBikeList',bike_id=showroom.id) }}" class="glyphicon glyphicon-plus-sign"> Add <span ></a></button>
+		{% endif %}
+</div>
+	<div class="">
+		<br>{% for j in bike %}
+		<div>
+			<br>
+
+	<table style="width:100%">
+  <tr>
+    <th>bike_name</th>
+    <th>about</th> 
+    <th>millage</th>
+    <th>engine_capacity</th>
+    <th>max_power</th> 
+    <th>Transmission</th>
+    <th>kerb_weight</th>
+    <th>price</th>
+  </tr>
+  <tr>
+    <td><p>{{j.bike_name}}</p></td>
+	<td><p>{{j.about}}</p></td>
+	<td><p>{{j.millage}}</p></td>
+	<td><p>{{j.engine_capacity}}</p></td>
+	<td><p>{{j.max_power}}</p></td>
+	<td><p>{{j.Transmission}}</p></td>
+	<td><p>{{j.kerb_weight}}</p></td>
+	<td><p>{{j.price}}</p></td>
+  </tr>
+</table>
+</div>
+		
+	</div>
+	{% if 'username' in session %}
+	<button><a href="{{ url_for('editBikeList', showroom_id=showroom.id, b_id=j.id) }}" class="glyphicon glyphicon-edit"> edit <span ></a></button>
+	<button><a href="{{ url_for('deleteBikeList', bike_id=showroom.id, list_id=j.id) }}" class="glyphicon glyphicon-trash"> delete  <span ></span></a></button>
+	{% endif %}
+	{% endfor %}
+</div>
+</form>
+</body>
+</html>
